@@ -20,7 +20,7 @@ jobs:
       - name: Build repository 
         run: | 
           export CC=gcc && export CXX=g++ && export CFLAGS="-g -fno-inline -fno-omit-frame-pointer" && export LDFLAGS=""
-          autoreconf -i && ./configure
+          ./configure
           sed -i 's/^CC\s*=.*/CC = gcc/' Makefile && sed -i 's/^CXX\s*=.*/CXX = g++/' Makefile && sed -i 's/^CFLAGS\s*=.*/& -g -fno-inline -fno-omit-frame-pointer/' Makefile && sed -i 's/^LDFLAGS\s*=.*/& /' Makefile && sed -i 's/^CPP\s*=.*/CPP = gcc -E/' Makefile
           make
         continue-on-error: true 
